@@ -120,3 +120,16 @@ export const getConsultaByHistoria = (numero_historia) =>
         }
     }).then(res => res.json())
     .then(data => data)
+
+
+export const filtrarConsultaFecha = (date) => 
+    fetch(`${base_url}/consulta/date`, {
+        method: 'POST',
+        body: JSON.stringify({
+            fecha_atencion: date 
+        }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(res => res.json())
+  .then(data => data)

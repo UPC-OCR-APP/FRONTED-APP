@@ -15,7 +15,7 @@ import Button from "../components/Button";
 import Input from "../components/Input";
 import _Appbar from "../components/Appbar";
 import Constants from 'expo-constants'
-import { getHistoryByDni,  getConsultaByHistoria } from "../services/historiaClinicaService";
+import { getHistoryByDni,  getConsultaByHistoria, filtrarConsultaFecha } from "../services/historiaClinicaService";
 
 // ----------------------------------------------------------------
 //import React, { Component, useRef } from "react";
@@ -93,6 +93,17 @@ const HistoriaClinica = ({ navigation, route, props }) => {
   
   const editarConsulta = async () => {
     console.log("Editando");
+  }
+
+  const filtrarConsulta = async () => {
+    setTimeout(async () => {
+      try {
+        const _arregloRecibido = await filtrarConsultaFecha(inputs.fecha);
+        setArregloRecibido(_arregloRecibido)
+      } catch (error) {
+        Alert.alert("Error", "Something went wrong", error);
+      }
+    })
   }
 
   const visualizarConsulta  = async (item) => {
@@ -206,7 +217,7 @@ const HistoriaClinica = ({ navigation, route, props }) => {
                         />
                     </View>
                     <View style= {{width: '25%', marginHorizontal: 10, marginTop: 10}}>
-                        <Button title="FILTRAR" />
+                        <Button title="FILTRAR" onPress={async () => {filtrarConsulta();}} />
                     </View>
                     <View style= {{width: '25%', marginHorizontal: 10, marginTop: 10}}>
                         <Button title="ÚLTIMAS CONSULTAS" />
