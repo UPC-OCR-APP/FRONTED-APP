@@ -60,7 +60,7 @@ const RegistroHistoriaClinica = ({ navigation }) => {
     } else {
       if (
         inputs.apellido !=
-        dataRecibidaDni.apellidoMaterno + " " + dataRecibidaDni.apellidoPaterno
+        dataRecibidaDni.apellidoPaterno  + " " +  dataRecibidaDni.apellidoMaterno
       ) {
         handleError("Apellidos no compatibles con DNI", "apellido");
         isValid = false;

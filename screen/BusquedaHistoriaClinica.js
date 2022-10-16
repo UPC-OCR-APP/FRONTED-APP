@@ -72,10 +72,10 @@ const BusquedaHistoriaClinica = ({ navigation }) => {
     setTimeout(async () => {
       try {
         let arra_nombre = inputs.nombre.split(" ");
-        if (arra_nombre.length == 2) {
+        if (arra_nombre.length == 4) {
           const dataRecibida = await getHistoryByName(
-            arra_nombre[0],
-            arra_nombre[1]
+            arra_nombre[0] + " " + arra_nombre[1],
+            arra_nombre[2] + " " + arra_nombre[3]
           );
           setLoading(false);
 
@@ -88,6 +88,7 @@ const BusquedaHistoriaClinica = ({ navigation }) => {
           }
         } else {
           Alert.alert("Error", "La busqueda es por Nombre y Apellido");
+          setShowHistoriaClinica(false);
         }
       } catch (error) {
         Alert.alert("Error", "Something went wrong", error);

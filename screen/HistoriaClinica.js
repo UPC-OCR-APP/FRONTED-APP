@@ -99,6 +99,7 @@ const HistoriaClinica = ({ navigation, route, props }) => {
     setTimeout(async () => {
       try {
         const _arregloRecibido = await filtrarConsultaFecha(inputs.fecha);
+        console.log("Lo que busca", inputs.fecha, "Resiltado", _arregloRecibido)
         setArregloRecibido(_arregloRecibido)
       } catch (error) {
         Alert.alert("Error", "Something went wrong", error);
@@ -208,8 +209,8 @@ const HistoriaClinica = ({ navigation, route, props }) => {
                 <View  style= {{ flexDirection: 'row', marginVertical: 10}}>
                     <View style={{width: '45%'}}>
                         <Input
-                            onChangeText={(text) => handleOnchange(text, "fechaNacimiento")}
-                            onFocus={() => handleError(null, "fechaNacimiento")}
+                            onChangeText={(text) => handleOnchange(text, "fecha")}
+                            onFocus={() => handleError(null, "fecha")}
                             iconName="calendar"
                             label="Fecha"
                             //placeholder="Enter your phone no"

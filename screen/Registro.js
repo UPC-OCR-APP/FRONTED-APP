@@ -38,30 +38,37 @@ const RegistrationScreen = ({ navigation }) => {
     Keyboard.dismiss();
     let isValid = true;
 
-    // const dataRecibidaDni = await getDNI(inputs.dni);
+    const dataRecibidaDni = await getDNI(inputs.dni);
     const dataRecibidaEmail = await getEmail(inputs.correo);
+
+    console.log("asd", dataRecibidaDni)
+    if (dataRecibidaDni.dni == undefined) {
+      handleError("DNI no valido", "dni");
+      isValid = false;
+      return;
+    }
 
     if (!inputs.nombre) {
       handleError("Ingresa tu nombre", "nombre");
       isValid = false;
     } else {
-      // if (inputs.nombre != dataRecibidaDni.nombres) {
-      //   handleError("Nombre(s) no compatible(s) con DNI", "nombre");
-      //   isValid = false;
-      // }
+      if (inputs.nombre != dataRecibidaDni.nombres) {
+        handleError("Nombre(s) no compatible(s) con DNI", "nombre");
+        isValid = false;
+      }
     }
 
     if (!inputs.apellido) {
       handleError("Ingresa tu apellido", "apellido");
       isValid = false;
     } else {
-      // if (
-      //   inputs.apellido !=
-      //   dataRecibidaDni.apellidoMaterno + " " + dataRecibidaDni.apellidoPaterno
-      // ) {
-      //   handleError("Apellidos no compatibles con DNI", "apellido");
-      //   isValid = false;
-      // }
+      if (
+        inputs.apellido !=
+        dataRecibidaDni.apellidoPaterno  + " " +  dataRecibidaDni.apellidoMaterno
+      ) {
+        handleError("Apellidos no compatibles con DNI", "apellido");
+        isValid = false;
+      }
     }
 
     if (!inputs.dni) {
@@ -71,14 +78,6 @@ const RegistrationScreen = ({ navigation }) => {
       if (inputs.dni.length != 8) {
         handleError("La longitud del D.N.I. es 8", "dni");
         isValid = false;
-      } else {
-        // setTimeout(async () => {
-        //   console.log("Respuesta del dni", dataRecibidaDni);
-        //   if (dataRecibidaDni.dni == undefined) {
-        //     handleError("DNI no valido", "dni");
-        //     isValid = false;
-        //   }
-        // });
       }
     }
 

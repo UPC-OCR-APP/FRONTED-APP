@@ -51,8 +51,10 @@ export const updateUser = (nombre, apellido, email, usuario, password) =>
     }).then(res => res.json())
       .then(data => data)
 
+      
+
 export const getDNI = (dni) => 
-      fetch(`https://cloud.novoapi.com/api/reniec/N08skb2Rqa4VewcnXHNzDSZtvzWiose4lBMtkbWU/${dni}`, {
+      fetch(`https://dniruc.apisperu.com/api/v1/dni/${dni}?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImppZXBfMTcwMTAwQGhvdG1haWwuY29tIn0.4oPKuqVGriZ5jsXPGTo_HqTHg5xmFc6YIHt7TbstlnA`, {
           method: 'GET',
           headers: {
               "Content-Type": "application/json"

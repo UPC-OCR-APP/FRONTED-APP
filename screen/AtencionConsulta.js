@@ -71,7 +71,7 @@ const AtencionConsulta = ({ navigation, route }) => {
                               exa_auxiliares: consultaData.Examenes_Auxiliares,
                               prox_cita: consultaData.Proxima_Cita,
                               observacion: consultaData.Observaciones,
-                              //atendido: consultaData.Atendido_Por,
+                              atendido: consultaData.Atendido_Por,
                               tratamiento: consultaData.Tratamiento
                             })
                         }  catch (error) {
