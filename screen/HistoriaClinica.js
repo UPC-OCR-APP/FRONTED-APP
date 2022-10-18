@@ -107,11 +107,12 @@ const HistoriaClinica = ({ navigation, route, props }) => {
     })
   }
 
-  const ultimasConsulta = async () => {
+  const ultimaConsulta = async () => {
     setTimeout(async () => {
+      // FRANCO ALONSO GREGORINI MACHUCA
       try {
-        const _arregloRecibido = await ultimasConsulta(route.params.numHistory);
-        console.log("Lo que busca", inputs.fecha, "Resiltado", _arregloRecibido)
+        const _arregloRecibido = await ultimasConsultas(route.params.numHistory);
+        console.log("Lo que busca", inputs.fecha, "Resiltado", _arregloRecibido, route.params.numHistory)
         setArregloRecibido(_arregloRecibido)
       } catch (error) {
         Alert.alert("Error", "Something went wrong", error);
@@ -233,7 +234,7 @@ const HistoriaClinica = ({ navigation, route, props }) => {
                         <Button title="FILTRAR" onPress={async () => {filtrarConsulta();}} />
                     </View>
                     <View style= {{width: '25%', marginHorizontal: 10, marginTop: 10}}>
-                        <Button title="ÚLTIMAS CONSULTAS" onPress={async () => {ultimasConsulta();}} />
+                        <Button title="ÚLTIMAS CONSULTAS" onPress={async () => {ultimaConsulta();}} />
                     </View>
                 </View>
             </View>
