@@ -54,7 +54,7 @@ export const updateUser = (nombre, apellido, email, usuario, password) =>
       
 
 export const getDNI = (dni) => 
-      fetch(`https://dniruc.apisperu.com/api/v1/dni/${dni}?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImppZXBfMTcwMTAwQGhvdG1haWwuY29tIn0.4oPKuqVGriZ5jsXPGTo_HqTHg5xmFc6YIHt7TbstlnA`, {
+      fetch(`https://dniruc.apisperu.com/api/v1/dni/${dni}?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InJvbWVyb192aWxsYS1zZWJhc3RpYW5AaG90bWFpbC5jb20ifQ.jq5D8xra4XzmBJ9WDaadZGfbExY7hsBhj_U5WObXJIY`, {
           method: 'GET',
           headers: {
               "Content-Type": "application/json"

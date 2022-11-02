@@ -77,7 +77,7 @@ const Login = ({ navigation }) => {
         
       }
       else {
-        Alert.alert("Error", "User does not exist");
+        Alert.alert("Error", "El usuario o contraseña incorrecta");
       }
     }, 10);
   };

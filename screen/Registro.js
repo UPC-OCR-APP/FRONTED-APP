@@ -237,7 +237,7 @@ const RegistrationScreen = ({ navigation }) => {
             error={errors.contraseña}
             password
           />
-          <Button title="Registro" onPress={validate} />
+          <Button title="Registrarse" onPress={validate} />
           <Text
             onPress={() => navigation.navigate("Login")}
             style={{
